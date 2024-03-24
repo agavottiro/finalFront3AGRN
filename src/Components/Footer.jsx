@@ -1,12 +1,18 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer>
+    <div>
+      <Outlet />
+      <footer>
         <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
+        <img src="/images/DH.png" alt="DH-logo" />
     </footer>
-  )
-}
+    </div>
+  );
 
-export default Footer
+
+};
+
+export default Footer;
