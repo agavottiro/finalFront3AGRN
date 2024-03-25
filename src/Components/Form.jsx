@@ -26,12 +26,13 @@ const Form = () => {
         `Gracias ${contacto.name}, te contactaremos cuando antes vía mail`
       );
     }
+    console.log(contacto)
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Name: </label>
+        <label>Nombre: </label>
         <input
           type="text"
           onChange={(e) => setContacto({ ...contacto, name: e.target.value })}
@@ -41,9 +42,12 @@ const Form = () => {
           type="text"
           onChange={(e) => setContacto({ ...contacto, email: e.target.value })}
         ></input>
-        <button type="submit">Send</button>
+        <button type="submit">Enviar</button>
       </form>
+      <div className="mensaje">
       {message}
+      </div>
+
     </div>
   );
 };

@@ -21,12 +21,10 @@ const Detail = () => {
     getData();
   }, [id]);
 
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-
   return (
     <>
       <div className="details">
-        <h1>Detail Dentist id </h1>
+        <h1>Detalle del Dentista {dentistSelected.id}</h1>
         <div className="card-details">
           <img
             src="/public/images/doctor.jpg"
@@ -37,7 +35,14 @@ const Detail = () => {
           <h3>{dentistSelected.email}</h3>
           <h3>{dentistSelected.phone}</h3>
           <a href={dentistSelected.website}>Website</a>
-          <button className="favButton" onClick={()=> dispatch( {type:"ADD_DESTACADOS", payload: dentistSelected } )}>⭐</button>
+          <button
+            className="favButton"
+            onClick={() =>
+              dispatch({ type: "ADD_DESTACADOS", payload: dentistSelected })
+            }
+          >
+            ⭐
+          </button>
         </div>
       </div>
     </>

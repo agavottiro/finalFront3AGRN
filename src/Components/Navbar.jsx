@@ -12,15 +12,15 @@ export const Navbar = () => {
         <img src="/DH.ico" alt="Icono DH"></img>
         <ul>
           <Link to="/">Home</Link>
-          <Link to="/contacto">Contact</Link>
-          <Link to="/favs">Favs</Link>
+          <Link to="/contacto">Contacto</Link>
+          <Link to="/favs">Favoritos</Link>
         </ul>
 
         <button
           className="buttons"
           onClick={() => dispatch({ type: "CHANGE_THEME" })}
         >
-          Change theme
+          Cambiar tema
         </button>
       </nav>
       <Outlet />
