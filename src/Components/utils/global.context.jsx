@@ -12,8 +12,11 @@ export const getDentistById = async (id) => {
 };
 
 const ContextGlobal = createContext();
+const lsFavs = JSON.parse(localStorage.getItem("favs"));
+console.log(lsFavs);
 
-let initialState = { darkTheme: false, favs: [] };
+let initialState = { darkTheme: false, favs: lsFavs || []};
+
 
 const contextReducer = (state, action) => {
   switch (action.type) {
@@ -36,6 +39,9 @@ const contextReducer = (state, action) => {
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(contextReducer, initialState);
   let data = { state, dispatch };
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(state.favs));
+  }, [state.favs]);
 
   return (
     <ContextGlobal.Provider value={data}>{children}</ContextGlobal.Provider>

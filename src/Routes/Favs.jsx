@@ -3,8 +3,6 @@ import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
 import { Link } from "react-router-dom";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Favs = () => {
   const { state, dispatch } = useContextGlobal();
 
@@ -18,14 +16,6 @@ const Favs = () => {
           state.favs.map((dentist) => (
             <div className="card" key={dentist.id}>
               <Card dentist={dentist} />
-              <button
-                className="buttons"
-                onClick={() =>
-                  dispatch({ type: "REMOVE_BY_ID", payload: dentist.id })
-                }
-              >
-                Quitar de favoritos
-              </button>
             </div>
           ))
         )}

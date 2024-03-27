@@ -19,6 +19,7 @@ function App() {
               <Route path="/contacto" element={<Contact />} />
               <Route path="/dentist/:id" element={<Detail />} />
               <Route path="/favs" element={<Favs />} />
+              <Route path="*" element={<h1>Página no encontrada</h1>}/>
             </Route>
           </Route>
         </Routes>
