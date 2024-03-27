@@ -15,12 +15,14 @@ const ContextGlobal = createContext();
 const lsFavs = JSON.parse(localStorage.getItem("favs"));
 console.log(lsFavs);
 
-let initialState = { darkTheme: false, favs: lsFavs || []};
-
+let initialState = { darkTheme: false, favs: lsFavs || [] };
 
 const contextReducer = (state, action) => {
   switch (action.type) {
     case "ADD_DESTACADOS":
+      if (state.favs.find((dentist) => dentist.id === action.payload.id)) {
+        return state;
+      }
       return { ...state, favs: [...state.favs, action.payload] };
     case "REMOVE_BY_ID":
       let newFavs = state.favs.filter(
